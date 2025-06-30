@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario Rosa</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="app-container">
+    <h1>Inventario Rosa</h1>
+
+    <section class="card">
+      <h2>📦 Inventario</h2>
+      <div class="input-group">
+        <input type="text" id="prodName" placeholder="Nombre">
+        <input type="number" id="prodQty" placeholder="Cant." min="1">
+        <input type="number" id="prodPrice" placeholder="Precio" step="0.01" min="0">
+        <button onclick="addProduct()">Agregar</button>
+      </div>
+      <ul id="productsList"></ul>
+      <div class="total">Total inventario: $<span id="invTotal">0.00</span></div>
+    </section>
+
+    <section class="card">
+      <h2>🧾 Fiados</h2>
+      <div class="input-group">
+        <input type="text" id="fiadoName" placeholder="Nombre">
+        <input type="text" id="fiadoProd" placeholder="Producto">
+        <input type="number" id="fiadoTotal" placeholder="Monto" step="0.01" min="0">
+        <button onclick="addFiado()">Agregar</button>
+      </div>
+      <ul id="fiadosList"></ul>
+      <div class="total">Total fiado: $<span id="fiadoTotalSum">0.00</span></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
